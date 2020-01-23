@@ -17,6 +17,7 @@ require "google/cloud/errors"
 require "google/cloud/translate/credentials"
 require "google/cloud/translate/version"
 require "faraday"
+require "faraday/detailed_logger"
 require "uri"
 
 module Google
