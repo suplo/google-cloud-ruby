@@ -105,7 +105,11 @@ module Google
         def http
           @http ||= Faraday.new url: @host, request: {
             open_timeout: @timeout, timeout: @timeout
-          }.delete_if { |_k, v| v.nil? }
+          } do |faraday|
+            puts '-' * 40 + ' FARADAY ' + '-' * 40
+            faraday.response :detailed_logger
+            faraday.adapter Faraday.default_adapter
+          end
         end
 
         ##
